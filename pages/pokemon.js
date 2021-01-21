@@ -1,11 +1,18 @@
+import Head from 'next/head';
+
 const Pokemon = ({ pokemon }) => {
 	return (
-		<div>
-			<img src={pokemon?.sprites.front_default} />
+		<>
+        <Head>
+            <title>Pokemon: {pokemon?.name}</title>
+        </Head>
 			<div>
-				<div>Welcome, {pokemon?.name}!</div>
+				<img src={pokemon?.sprites.front_default} />
+				<div>
+					<div>Welcome, {pokemon?.name}!</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
