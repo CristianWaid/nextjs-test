@@ -1,16 +1,22 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Pokemon = ({ pokemon }) => {
 	return (
 		<>
-        <Head>
-            <title>Pokemon: {pokemon?.name}</title>
-        </Head>
-			<div>
+			<Head>
+				<title>Pokemon: {pokemon?.name}</title>
+			</Head>
+			<div
+				style={{
+					textAlign: 'center',
+				}}
+			>
 				<img src={pokemon?.sprites.front_default} />
 				<div>
 					<div>Welcome, {pokemon?.name}!</div>
 				</div>
+				<Link href="/"><a>Home</a></Link>
 			</div>
 		</>
 	);
