@@ -1,24 +1,39 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Header from '../src/components/Header.js';
+import RandomPhoto from '../src/components/RandomPhoto';
 
-const Home = () => {
-	const router = useRouter();
-
-	const handlePokemonClick = (e) => {
-		e.preventDefault();
-		router.push('/pokemon');
-	};
+const Home = ({ imageSource, staticImageSource }) => {
 	return (
 		<>
 			<Head>
-				<title>My First NextJS Page</title>
+				<title>SSG-TestApp</title>
 			</Head>
-			<div style={{ textAlign: 'center' }}>
-				<h1>My first NextJS Page</h1>
-				<button onClick={handlePokemonClick}>Charmander</button>
-			</div>
+			<>
+				<Header />
+				<RandomPhoto source={staticImageSource} />
+			</>
 		</>
 	);
 };
+
+export const getStaticProps = async () => {
+	const staticImageSource = 'https://picsum.photos/800/300';
+
+	return {
+		props: {
+			staticImageSource,
+		},
+	};
+};
+
+// export const getServerSideProps = async () => {
+// 	const imageSource = 'https://picsum.photos/800/300';
+
+// 	return {
+// 		props: {
+// 			imageSource,
+// 		},
+// 	};
+// };
 
 export default Home;
