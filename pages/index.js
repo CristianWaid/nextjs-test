@@ -1,5 +1,6 @@
+import { Link } from '@material-ui/core';
 import Head from 'next/head';
-import Header from '../src/components/Header.js';
+import Header from '../src/components/Header/index.js';
 import RandomPhoto from '../src/components/RandomPhoto';
 
 const Home = ({ imageSource, staticImageSource }) => {
@@ -8,10 +9,19 @@ const Home = ({ imageSource, staticImageSource }) => {
 			<Head>
 				<title>SSG-TestApp</title>
 			</Head>
-			<>
+			<div>
+				<style jsx global>{`
+					body {
+						margin: 0px;
+						padding: 0px;
+					}
+				`}</style>
 				<Header />
 				<RandomPhoto source={staticImageSource} />
-			</>
+				<Link href={'/user'}>
+					<a>Ranom User</a>
+				</Link>
+			</div>
 		</>
 	);
 };
