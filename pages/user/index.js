@@ -23,7 +23,7 @@ const UserPage = ({ userData }) => {
 	);
 };
 
-export const getServerSideProps = async () => {
+export const getStaticSideProps = async () => {
 	//const randomUserID = Math.floor(Math.random() * 51);
     //const res = await fetch(`https://6017e6a5971d850017a3f2a0.mockapi.io/pa3/api/users/${randomUserID}`);
     const res = await fetch('https://randomuser.me/api/');
@@ -35,5 +35,18 @@ export const getServerSideProps = async () => {
 		},
 	};
 };
+
+// export const getServerSideProps = async () => {
+// 	//const randomUserID = Math.floor(Math.random() * 51);
+//     //const res = await fetch(`https://6017e6a5971d850017a3f2a0.mockapi.io/pa3/api/users/${randomUserID}`);
+//     const res = await fetch('https://randomuser.me/api/');
+// 	const data = await res.json();
+
+// 	return {
+// 		props: {
+// 			userData: data.results[0],
+// 		},
+// 	};
+// };
 
 export default UserPage;
