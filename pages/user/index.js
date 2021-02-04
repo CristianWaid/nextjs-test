@@ -23,7 +23,7 @@ const UserPage = ({ userData }) => {
 	);
 };
 
-export const getStaticSideProps = async () => {
+export const getStaticProps = async () => {
 	//const randomUserID = Math.floor(Math.random() * 51);
     //const res = await fetch(`https://6017e6a5971d850017a3f2a0.mockapi.io/pa3/api/users/${randomUserID}`);
     const res = await fetch('https://randomuser.me/api/');
